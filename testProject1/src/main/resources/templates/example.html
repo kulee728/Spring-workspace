@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>정적자원 js, css, html 연결</title>
+	<link rel="stylesheet" href="/css/testEx.css">
+</head>
+<body>
+	메인으로가기는 <a href='/index'>여기</a>를 클릭하세요
+	<!-- 
+		link, script 구분 지어서 연결한다.
+		static 폴더를 기준으로 css 파일경로를 작성한다.
+		/ 로 시작하면 static을 기준으로 주소를 indicate 한다. 
+	 -->
+	<h1>정적자원 js, css, html 연결</h1>
+	<div class='container'>
+	<img src="/image/Marley.jpg">
+	<img src="/image/Hogam.jpg">
+	<img src="/image/Healing.jpg">
+	<button id='btn' onclick="btnClicked()">자바스크립트 연결 테스트</button>
+	</div>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="/js/testEx.js"></script>
+</body>
+</html>
