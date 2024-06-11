@@ -40,4 +40,25 @@ public class ParameterController {
 		
 		return "redirect:/param/main";
 	}
+	/*
+	  2. RequestParam - 독립된 개별 파라미터 얻어오기
+	  - HttpServletRequest 객체를 활용한 매개변수 전달 어노테이션
+	  - 매개 변수 앞 해당 어노테이션 작성 시 매개변수에 값이 작성된다.
+	  - 작성되는 데이터는 매개변수 자료형에 맞게 형변환이 자동으로 수행됨.
+	  @RequestParam(value= = "", required="false",defaultValue="1");
+	  
+	 value 		> 전달 받은 input 태그의 name 속성 값
+	 required 	> 넣어준 name 속성값 태그에게 입력 을 필수로 강제하게 함 (기본값 true)
+	 			> required = true 인 파라미터가 존재하지 않거나 null인 경우 400 Bad Request 에러
+	 defaultValue > 파라미터 중 일치하는 name 속성 값이 없는 경우 대입할 값 지정. (required false 일 때)
+	 */
+	@PostMapping("test2")
+	public String paramTest2(/*RequestParam의 작성 위치*/) {
+		
+		log.info("문제 없이 insert 가능한지 확인하기");
+		
+		return "redirect:/param/main";
+	}
+	
+	
 }
