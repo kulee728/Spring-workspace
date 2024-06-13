@@ -1,8 +1,14 @@
 package com.example.demo.controller;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.dto.MemberDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -53,9 +59,58 @@ public class ParameterController {
 	 defaultValue > 파라미터 중 일치하는 name 속성 값이 없는 경우 대입할 값 지정. (required false 일 때)
 	 */
 	@PostMapping("test2")
-	public String paramTest2(/*RequestParam의 작성 위치*/) {
-		
+	public String paramTest2(@RequestParam(value="title",required=false,defaultValue="제목없음") String title,
+			@RequestParam(value="writer",required=true) String writer,
+			@RequestParam("price") int price,
+			@RequestParam(value="publisher",required=false,defaultValue="교보문고") String publisher){
+	
 		log.info("문제 없이 insert 가능한지 확인하기");
+		log.debug("title :" + title);
+		log.debug("writer :" + writer);
+		log.debug("price :" + price);
+		log.debug("publisher :" + publisher);
+		return "redirect:/param/main";
+	}
+	
+	
+	@PostMapping("test3")
+	public String paramTest3(@RequestParam(value="color",required=false) String[] colorArr, 
+			@RequestParam(value="fruit",required=false) List<String> fruitList,
+			@RequestParam /*(value="product", required=false)*/ Map<String,Object> paramMap
+			) {
+		log.info("colorArr : " + Arrays.toString(colorArr));
+		log.info("fruitList : " + fruitList);
+		log.info("paramMap"+ paramMap.toString() );
+		return "redirect:/param/main";
+	}
+	
+	/*
+	 * DTO (Data Transfer Object) : 데이터 캡슐화를 통해 데이터를 전달하고 관리
+	 *  한 계층에서 다른 계층으로 데이터 전송을 위해 사용 
+	 
+	 * VO (Value Object) : 값 자체를 표현하는 객체. 한 번 생성돠면 값을 변경 불가.
+	 * 생성자를 통해 값 설정, setter 접근은 X
+	 
+	 * @ModelAttribute
+	 * - DTO, VO 와 같이 사용하는 어노테이션(생략시 DEFAULT로서 가독성 외 생략 가능
+	 * - 전달받은 파라미터의 name 속성값이 같이 사용되는 DTO의 필드명과 같다면
+	 * - 자동으로 setter를 호출해서 필드에 값을 저장
+	 이때, 반드시 DTO에 기본생성자, setter 가 필수로 존재 해야한다. 
+	 생성한 객체를 커맨드 객체라고 한다.
+	 */
+	
+	@PostMapping("test4")
+	public String paramTest4(/*@ModelAttribute 작성 생략이 가능하다!!!!*/ MemberDTO inputMember) {
+		MemberDTO mem = new MemberDTO();
+		mem.getMemberAge();
+		mem.setMemberAge(0); //lombok 에서 만들어줬지롱
+		mem.setMemberId("kulee728");
+		mem.setMemberName("이강욱");
+		mem.setMemberPw("3333");
+		
+		log.info("mem : "+mem.toString());
+		
+		log.info("inputMember :" +inputMember.toString());
 		
 		return "redirect:/param/main";
 	}

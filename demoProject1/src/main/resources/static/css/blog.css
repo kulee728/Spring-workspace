@@ -1,0 +1,175 @@
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.aside{
+    flex:1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #f2f2f2;
+}
+
+body {
+margin: 0;
+padding: 0;
+background-color: #f2f2f2;
+}
+header {
+background-color: #333;
+color: white;
+padding: 10px;
+text-align: center;
+}
+
+nav ul {
+list-style: none;
+padding: 0;
+}
+header h1 {
+margin: 0;
+}
+nav ul li {
+display: inline;
+margin: 0 10px;
+font-size: 20px;
+}
+nav ul li a {
+text-decoration: none;
+color: white;
+cursor: pointer;
+}
+nav ul li a:hover {
+color: yellow;
+
+}
+.posts {
+    margin-right: 20px;
+    flex:2;
+}
+.posts .article{
+background-color: white;
+margin-bottom: 20px;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px #f2f2f2;
+}
+.posts .article h2{
+margin-top: 0;
+}
+
+.posts .article a{
+color:#333;
+text-decoration: none;
+font-weight: bold;
+}
+
+.visitor-comments{
+    flex:1 1 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #f2f2f2;
+    margin-top: 20px;
+}
+.visitor-comments h2{
+    margin-top: 0;
+}
+.visitor-comments form{
+    display: flex;
+    flex-direction: column;
+}
+.visitor-comments label{
+    margin:10px 0 5px;
+}
+.visitor-comments input,
+.visitor-comments textarea{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.visitor-comments button{
+    border:none;
+    background-color: #333;
+    color:white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+footer{
+    text-align: center;
+    padding:20px 0;
+    background-color: #333;
+    color:white;
+    
+}
+
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.aside{
+    flex:1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #f2f2f2;
+}
+
+body {
+margin: 0;
+padding: 0;
+background-color: #f2f2f2;
+}
+header {
+background-color: #333;
+color: white;
+padding: 10px;
+text-align: center;
+}
+
+nav ul {
+list-style: none;
+padding: 0;
+}
+header h1 {
+margin: 0;
+}
+nav ul li {
+display: inline;
+margin: 0 10px;
+font-size: 20px;
+}
+nav ul li a {
+text-decoration: none;
+color: white;
+cursor: pointer;
+}
+nav ul li a:hover {
+color: yellow;
+}
+.posts {
+    margin-right: 20px;
+    flex:2;
+}
+.posts .article{
+background-color: white;
+margin-bottom: 20px;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 0 10px #f2f2f2;
+}
+.posts .article h2{
+margin-top: 0;
+}
+
+.posts .article a{
+color:#333;
+text-decoration: none;
+font-weight: bold;
+}
