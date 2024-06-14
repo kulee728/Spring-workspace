@@ -1,0 +1,22 @@
+
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+
+
+보통 db를 연결하는 코드는
+src/main/resources/templates 밑에
+mappers 폴더를 만들어서 mappers 안에 xml 파일을 생성해준다.
+보통 파일 명을 작성할 때, 관련된 테이블명- mapper.xml 로 쓴다.
+ <!Doctype 옆에 mybatis 를 세팅한다
+ -->
+ 
+ <!-- 작성 방법 --><!-- 
+ <select id="" resultType="결과전송">
+ 		평소 작성했던 select sql 작성한다.
+ </select>
+
+ <insert id="" parameterType="넣을값가져오기">
+ 	평소 작성했던 insert SQL 작성하기
+ </insert>
+  -->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>멤버 정보 </title>
+</head>
+<body>
+	<h1>멤버 정보 띄우기</h1>
+	<h3>방법 1번</h3>
+	<ul>
+		
+		<li></li>
+	</ul>
+	<h3>방법 3번</h3>
+	<table border='1'>
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>번호</th>
+				<th>나이</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="mem : ${memList}" th:object="${mem}">
+				<td th:text="*{memberName}">name</td>
+				<td th:text="*{memberPhoneNum}">phoneNum</td>
+				<td th:text="*{memberAge}">age</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
