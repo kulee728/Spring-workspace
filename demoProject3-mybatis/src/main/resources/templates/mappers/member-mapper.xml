@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- downloading external resource disable인 경우 prference/xml(wild web developer) 
+	/ download external resources like reference DTD,XSD 체크 -->
+
+
+<!-- mapper로 sql작성이 어디서부터 어디까지인지 범위를 설정한다. namespace는 나중에 java 파일 중에서 어떤 
+	파일로 db작성 내용을 전달받고 전달 할지 파일을 지정 -->
+<mapper namespace="com.example.demo.mapper.MemberMapper">
+	<!-- id는 나중에 MemberMapper로 만든 인터페이스에 전달할 명칭. parameterType은 dto 중 어떤 java 
+		파일을 바라볼지 선택 -->
+	<!-- id 값을 insertMember로 작성했다면 java 파일에서 mapper, service, controller 모두에서 
+		id 에 대한 참조를 insertMember로 통일하는 것이좋다. spring boot는 @어노테이션과 properties 작성경로를 
+		통해 경로를 찾기 때문에 파일을 찾지 못하거나 실행에 지장이 있을 수 있다. -->
+	<insert id="insertMember"
+		parameterType="com.example.demo.dto.Member">
+		INSERT INTO member(member_id,member_name,member_age,member_phone) 
+		<!-- DB -->
+		values (member_seq.NEXTVAL,{#memberName},{#memberAge},{#memberPhone}) 
+		<!--memberDTO 객체 -->
+	</insert>
+	<!-- 마찬가지로 select, update, delete도 작성할 수 있다. select는 parameterType이 들어가는 
+		것이 아니라 resultSet 사용해서 검색이나 조회한 결과를 자바에 반영한다. -->
+</mapper>
