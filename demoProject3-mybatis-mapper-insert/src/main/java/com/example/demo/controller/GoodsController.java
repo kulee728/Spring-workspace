@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.dto.Drinks;
 import com.example.demo.dto.Goods;
 import com.example.demo.service.GoodsService;
 
@@ -14,13 +15,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class GoodsController {
-	
+	/*
 	@GetMapping("/") //맨 앞 페이지에서 볼 화면
 	public String registerform(Model model) {
 		model.addAttribute("goods",new Goods()); //DB에 값을 넣을 수 있는 객체 생성
+		model.addAttribute("drinks",new Drinks());
 		return "index";
 	}
-	
+	*/
 	//GoodsService에 숫자값이 아니면 들어가지 못하게 방지를 하거나, 비밀번호 암호화 설정과 같은
 	//상세 기능을 넣고 service 를 호출해서 mapper java 파일에 값을 전달할 수 있도록 작성해주기.
 	
