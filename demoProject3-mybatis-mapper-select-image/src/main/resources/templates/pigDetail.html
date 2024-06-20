@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>상세보기</title>
+<link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+	<h1>돼지 상세 보기</h1>
+	<div class="container">
+	<h1 th:text="${pig.pig_name} + ' 상세 정보' "></h1>
+	<div class="detail">
+		<img th:src="@{${pig.pig_image_path}}">
+		<p th:text="${pig.pig_name}"></p>
+	</div>
+	<!-- thymeleaf 작은 따옴표는 변수노테이션의 영향을 받지 않는다. -->
+	</div>
+</body>
+</html>

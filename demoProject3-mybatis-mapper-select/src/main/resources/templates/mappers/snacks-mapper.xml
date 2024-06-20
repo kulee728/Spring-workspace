@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.khmall.mapper.SnacksMapper">
+<select id="getAllSnacks" resultType="com.khmall.dto.Snacks">
+SELECT snack_id s_id, snack_name, price  FROM SNACKS
+</select>
+<select id="getAllCompany" resultType="com.khmall.dto.Company">
+SELECT * FROM COMPANY
+</select>
+<select id="getAllSnackCompany" resultType="com.khmall.dto.SnackCompany">
+SELECT * FROM SNACKS JOIN COMPANY USING(COMPANY_ID)
+</select>
+
+</mapper>

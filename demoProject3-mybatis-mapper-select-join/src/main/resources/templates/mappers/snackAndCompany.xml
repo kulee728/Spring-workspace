@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 로 insert select update delete 
+감싸서 보낼 Mapper.java 경로 설정 -->
+
+<mapper namespace="com.khmall.mapper.SnackCompanyMapper">
+	<select id="getAllSnackCompany" resultType="com.khmall.dto.SnackCompany">
+		SELECT s.snack_id,s.snack_name, s.price ,c.company_id,c.company_name, c.company_phone, c.company_address
+		from snacks s, company c where s.company_id = c.company_id
+	</select>
+	
+	<!-- 사용자에게 받은 값을 기준으로 sql을 던지는 경우, parameterType으로 던지는 타입(String, int, float..)
+	을 알려줘야 한다. 이때, resultMap 속성을 사용하면 parameterType을 사용하지 않아도 된다.
+	(DTO <> DB가 어떤 타입으로 매칭되는지에 대한 공간이 존재하므로 -->
+	<select id="getSnackById" parameterType="int" resultType="com.khmall.dto.Snacks">
+		SELECT s.*, c.company_name FROM snacks s, company c
+		WHERE s.snack_id = #{snack_id}
+		AND s.company_id = c.company_id
+	</select>
+	<select id="getCompanyById" parameterType="int" resultType="com.khmall.dto.SnackCompany">
+		SELECT * FROM Company
+		WHERE company_id = #{company_id}
+	</select>
+</mapper>

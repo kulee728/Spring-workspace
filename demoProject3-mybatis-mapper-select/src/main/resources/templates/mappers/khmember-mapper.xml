@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.khmall.mapper.KhMemberMapper">
+	<insert id="insertKhMember" parameterType="com.khmall.dto.KhMember">
+		INSERT INTO khmember(member_id,username,password,email,created_at)
+		VALUES(khmember_seq.NEXTVAL,#{username},#{password},#{email},SYSDATE)
+	</insert>
+	<select id="getAllKhMember" resultType="com.khmall.dto.KhMember">
+		SELECT * FROM khmember
+	</select>
+</mapper>

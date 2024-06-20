@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>돼지 목록</title>
+<style type="text/css">
+	table{
+		width: 100%;
+		border-collapse:collapse;
+	}
+	th,td{
+		padding :10px;
+		border : 1px solid #ddd;
+	}
+	img{
+	width:30%;
+	height:auto;
+	}
+</style>
+
+</head>
+<body>
+	<h1>돼지 목록</h1>
+	<table>
+	<thead>
+	<tr>
+		<th>이미지</th>
+		<th>이름</th>
+		<th>상세 페이지로 이동하기</th>
+	</tr>
+	</thead>
+	<tbody>
+		<!-- pig Controller.java 에서 model pigList  -->
+		<tr th:each="p : ${pigList}">
+		<td>
+			<img th:src="@{${p.pig_image_path}}"> <!-- 원래는 "@{/image/이미지파일명}" -->
+			</td>
+			<td th:text="${p.pig_name}"></td>
+			<td> <a th:href="@{'/pigDetail/'+ ${p.pig_id}}">이동하기</a></td>
+	</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>간식회사 목록 띄우기</title>
+</head>
+<body>
+	<table border='1'>
+		<thead>
+			<tr>
+				<th>간식 명</th>
+				<th>간식 가격</th>
+				<th>제조사 명</th>
+				<th>제조사 연락처</th>
+				<th>제조사 주소</th>
+				<th>과자 상세 페이지로 이동하기</th>
+				<th>회사 상세 페이지로 이동하기</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="sc : ${scList}">
+				<td th:text="${sc.snack_name}"></td>
+				<td th:text="${sc.price}"></td>
+				<td th:text="${sc.company_name}"></td>
+				<td th:text="${sc.company_phone}"></td>
+				<td th:text="${sc.company_address}"></td>
+				<td><a th:href="@{'/snack/' + ${sc.snack_id}}">이동하기</a></td>
+				<td><a th:href="@{'/company/' + ${sc.company_id}}">이동하기</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
