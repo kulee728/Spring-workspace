@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>여주아울렛 의류 등록</title>
+<link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+	<h1>새로운 의류 등록하기</h1>
+	<div class="container">
+		<form action="/insertClothesSubmit" method="post" enctype="mulitpart/form-data">
+			<label>의류 명 : <input type="text" th:field="${c.clothes_name}" required></label>
+			<label>의류 가격 : <input type="text" th:field="${c.clothes_price}" required></label>
+			<label>의류 카테고리 : <input type="text" th:field="${c.clothes_category}" required></label>
+			<label>의류 이미지 등록 : <input type="file" th:field="${c.clothes_image_path}"></label>
+			<button>새로운 의류 등록하기</button>
+		</form>
+	</div>
+</body>
+</html>

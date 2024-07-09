@@ -10,4 +10,5 @@ import com.khmall.dto.Pig;
 public interface PigMapper {
 	List<Pig> getAllpigs();
 	Pig getPigById(int pig_id);
+	void uploadPig(Pig pig);
 }

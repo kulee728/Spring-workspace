@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.khmall.mapper.MemberMapper">
+<!-- Login -->
+<!-- Where 에서 가져와야 하는 값이 여러개 일 경우 Map 으로 가져올 것임
+ :: parameterType = "java.util.Map"
+ -->
+ 
+ <resultMap type="com.khmall.dto.Member" id="memberMap">
+  <!-- 1:1로 DTO의 멤버변수를 매핑-->
+  <id column="member_id" property="member_id"/>
+  <result column="username" property="member_name"/>
+  <result column="password" property="member_password"/>
+  <result column="email" property="member_email"/>
+  <result column="created_at" property="member_created_at"/>
+</resultMap>
+
+<select id="getLogin" parameterType="com.khmall.dto.Member" resultMap="memberMap">
+	SELECT * FROM MEMBERS
+	WHERE EMAIL = #{member_email}
+	AND PASSWORD = #{member_password}
+</select>
+
+</mapper>

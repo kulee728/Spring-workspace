@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>로그인</title>
+</head>
+<body>
+	<h1>로그인 해보자</h1>
+	<form action="/login" method="post">
+
+		EMAIL  :<input type="text" th:field="${m.member_email}"><br>
+		PASSWORD : <input type="text" th:field="${m.member_password}"><br>
+		<button>로그인</button>
+		<div th:if="${loginError}">
+			<p th:text="${loginError}" style="color:red"></p>
+			<p th:text="${findMyLogin}" style="color:green"><a href="/findMyLogin"></a></p>
+		</div>		
+	</form>
+</body>
+</html>
